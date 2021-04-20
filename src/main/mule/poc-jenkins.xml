@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="795bbd2c-f778-4f5d-b3c6-29b825b0f015" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="poc-jenkinsFlow" doc:id="25b39a20-8c29-4a65-8551-0f4e86ebfaca" >
+		<http:listener doc:name="Listener" doc:id="3cd552b1-9192-4865-a645-ae3c02400d2d" config-ref="HTTP_Listener_config" path="/hello_jenkins"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f2141e00-56cd-449e-8c17-6acb83c65bda" message="Welcome to jenkins integration with mulesoft"/>
+	</flow>
+</mule>
